@@ -16,6 +16,12 @@ function processSRT(filePath) {
             return textLines.join('');
         });
 
+        for (let i = processedChunks.length - 1; i > 0; i--) {
+            if (processedChunks[i] === processedChunks[i - 1]) {
+                processedChunks.splice(i, 1);
+            }
+        }
+
         const processedData = processedChunks.join('\n').replace(/\{\\.*\}/g, '');
 
         // Write the processed data to a new file

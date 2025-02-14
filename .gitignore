@@ -1,1 +1,3 @@
 *.srt
+*.xml
+node_modules/
